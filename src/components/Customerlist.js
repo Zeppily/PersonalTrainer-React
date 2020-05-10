@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import NavBar from "./NavBar";
 
 export default function Customerlist() {
   const [customers, setCustomers] = useState([]);
@@ -47,6 +48,7 @@ export default function Customerlist() {
 
   return (
     <div>
+        <NavBar page="Customerlist" />
       <ReactTable data={customers} columns={columns} filterable={true} />{" "}
     </div>
   );
