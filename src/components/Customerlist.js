@@ -48,7 +48,6 @@ export default function Customerlist() {
 
   return (
     <div>
-        <NavBar page="Customerlist" />
       <ReactTable data={customers} columns={columns} filterable={true} />{" "}
     </div>
   );
