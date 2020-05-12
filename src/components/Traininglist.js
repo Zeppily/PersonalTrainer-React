@@ -17,6 +17,10 @@ export default function Traininglist() {
 
   const columns = [
     {
+      Header: "ID",
+      accessor: "id"
+    },
+    {
       Header: "Date",
       id: "date",
       Cell: row => (
