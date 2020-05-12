@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import moment from 'moment';
-import Moment from 'react-moment';
+import Moment from "react-moment";
 
 export default function Traininglist() {
   const [trainings, setTrainings] = useState([]);
@@ -18,12 +17,12 @@ export default function Traininglist() {
 
   const columns = [
     {
-        Header: "Date",
-        id: "date",
-        Cell: row => (
-            <Moment format="DD.MM.YYYY HH:mm" date={row.original.date} />
-        ), 
-        filterable: false
+      Header: "Date",
+      id: "date",
+      Cell: row => (
+        <Moment format="DD.MM.YYYY HH:mm" date={row.original.date} />
+      ),
+      filterable: false
     },
     {
       Header: "Activity",
@@ -34,18 +33,18 @@ export default function Traininglist() {
       accessor: "duration"
     },
     {
-        Header: "First Name",
-        accessor: "customer.firstname"
-      },
-      {
-        Header: "Last Name",
-        accessor: "customer.lastname"
-      }
+      Header: "First Name",
+      accessor: "customer.firstname"
+    },
+    {
+      Header: "Last Name",
+      accessor: "customer.lastname"
+    }
   ];
 
   return (
     <div>
-      <ReactTable data={trainings} columns={columns} filterable={true}/>{" "}
+      <ReactTable data={trainings} columns={columns} filterable={true} />{" "}
     </div>
   );
 }

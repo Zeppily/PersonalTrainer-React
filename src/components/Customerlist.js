@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import NavBar from "./NavBar";
+import AddCustomer from "./addCustomer";
 
 export default function Customerlist() {
   const [customers, setCustomers] = useState([]);
@@ -12,6 +12,18 @@ export default function Customerlist() {
     fetch("https://customerrest.herokuapp.com/api/customers")
       .then(response => response.json())
       .then(responseData => setCustomers(responseData.content))
+      .catch(error => console.error(error));
+  };
+
+  const saveCustomer = customer => {
+    fetch("https://customerrest.herokuapp.com/api/customers", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(customer)
+    })
+      .then(result => fetchCustomers())
       .catch(error => console.error(error));
   };
 
@@ -29,7 +41,7 @@ export default function Customerlist() {
       accessor: "email"
     },
     {
-      Header: "Phonenumber",
+      Header: "Phone Number",
       accessor: "phone"
     },
     {
@@ -48,6 +60,7 @@ export default function Customerlist() {
 
   return (
     <div>
+      <AddCustomer saveCustomer={saveCustomer}/>
       <ReactTable data={customers} columns={columns} filterable={true} />{" "}
     </div>
   );
