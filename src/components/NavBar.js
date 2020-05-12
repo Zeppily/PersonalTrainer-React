@@ -36,7 +36,7 @@ export default function NavBar() {
         <Tabs value={value} onChange={handleChange} centered indicatorColor="primary" >
           <Tab value="one" label={<div><PersonIcon style={{verticalAlign: 'middle'}} />  Customers</div>} />
           <Tab value="two" label={<div><FitnessCenterIcon style={{verticalAlign: 'middle'}} />  Trainings</div>} />
-          <Tab value="three" label={<div><TodayIcon style={{verticalAlign: 'middle'}} />  Calender</div>} />
+          <Tab value="three" label={<div><TodayIcon style={{verticalAlign: 'middle'}} />  Calendar</div>} />
           <Tab value="four" label={<div><TrendingUpIcon style={{verticalAlign: 'middle'}} />  Statistics</div>} />
         </Tabs>
       </AppBar>
