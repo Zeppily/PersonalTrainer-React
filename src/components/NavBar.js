@@ -11,6 +11,7 @@ import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import TodayIcon from '@material-ui/icons/Today';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import { makeStyles } from '@material-ui/core/styles';
+import ShowCalendar from "./showCalendar";
 
 export default function NavBar() {
   const [value, setValue] = useState("one");
@@ -42,7 +43,7 @@ export default function NavBar() {
       </AppBar>
       {value === 'one' && <div><Customerlist /></div>}
       {value === 'two' && <div><Traininglist /></div>}
-      {value === 'three' && <div>Under construction</div>}
+      {value === 'three' && <div><ShowCalendar /></div>}
       {value === 'four' && <div>Under construction</div>}
     </div>
   );
