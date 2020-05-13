@@ -12,7 +12,7 @@ import SaveAltIcon from "@material-ui/icons/SaveAlt";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
 import DateFnsUtils from "@date-io/date-fns";
-import EditIcon from "@material-ui/icons/Edit";
+import AddBoxIcon from '@material-ui/icons/AddBox';
 import SportsBasketballIcon from "@material-ui/icons/SportsBasketball";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
@@ -62,7 +62,7 @@ export default function AddTraining(props) {
     <div>
       <Button
         size="small"
-        startIcon={<EditIcon />}
+        startIcon={<AddBoxIcon />}
         variant="contained"
         color="primary"
         onClick={handleClickOpen}

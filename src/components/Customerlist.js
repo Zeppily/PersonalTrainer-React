@@ -22,7 +22,7 @@ export default function Customerlist() {
       .catch(error => console.error(error));
   };
 
-  const saveCustomer = (customer) => {
+  const saveCustomer = customer => {
     fetch("https://customerrest.herokuapp.com/api/customers", {
       method: "POST",
       headers: {
@@ -38,9 +38,9 @@ export default function Customerlist() {
       .catch(error => console.error(error));
   };
 
-  const saveTraining = (training) => {
+  const saveTraining = training => {
     console.log(training);
-    
+
     fetch("https://customerrest.herokuapp.com/api/trainings", {
       method: "POST",
       headers: {
@@ -48,15 +48,14 @@ export default function Customerlist() {
       },
       body: JSON.stringify(training)
     })
-    .then(_ => {
-      setNotification("Training added Succesfully");
-      setOpen(true);
-    })
-    .catch(error => console.error(error));
-    
-  }
+      .then(_ => {
+        setNotification("Training added Succesfully");
+        setOpen(true);
+      })
+      .catch(error => console.error(error));
+  };
 
-  const deleteCustomer = (link) => {
+  const deleteCustomer = link => {
     if (window.confirm("Are you sure you want to delete this customer?")) {
       fetch(link, { method: "DELETE" })
         .then(result => fetchCustomers())
@@ -69,21 +68,20 @@ export default function Customerlist() {
   };
 
   const editCustomer = (customer, link) => {
-      fetch(link, {
-          method: 'PUT',
-          headers: {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify(customer)
-      })
+    fetch(link, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(customer)
+    })
       .then(result => fetchCustomers())
       .then(_ => {
         setNotification("Customer Edited Succesfully");
         setOpen(true);
       })
       .catch(error => console.error(error));
-
-  }
+  };
 
   const handleClose = () => {
     setOpen(false);
@@ -92,11 +90,11 @@ export default function Customerlist() {
   const columns = [
     {
       sortable: false,
-        filterable: false,
-        width: 160,
-        Cell: row => (
-            <AddTraining customer={row.original} saveTraining={saveTraining}/>
-        )
+      filterable: false,
+      width: 160,
+      Cell: row => (
+        <AddTraining customer={row.original} saveTraining={saveTraining} />
+      )
     },
     {
       Header: "First Name",
@@ -127,13 +125,13 @@ export default function Customerlist() {
       accessor: "city"
     },
     {
-        sortable: false,
-        filterable: false,
-        width: 120,
-        Cell: row => (
-            <EditCustomer customer={row.original} editCustomer={editCustomer} />
-        )
-      },
+      sortable: false,
+      filterable: false,
+      width: 120,
+      Cell: row => (
+        <EditCustomer customer={row.original} editCustomer={editCustomer} />
+      )
+    },
     {
       sortable: false,
       filterable: false,
@@ -141,7 +139,7 @@ export default function Customerlist() {
       accessor: "links[1].href",
       Cell: row => (
         <Button
-        size="small"
+          size="small"
           startIcon={<DeleteIcon />}
           color="secondary"
           variant="contained"
